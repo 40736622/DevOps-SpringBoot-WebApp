@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Country - World</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Population</th>
+                    <th>Code</th>
+                    <th>Continent</th>
+                    <th>Region</th>
+                    <th>Capital</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="country, stat : ${countries}">
+                    <td th:text="${stat.count}"></td>
+                    <td th:text="${country.name}"></td>
+                    <td th:text="${country.population}"></td>
+                    <td th:text="${country.code}"></td>
+                    <td th:text="${country.continent}"></td>
+                    <td th:text="${country.region}"></td>
+                    <td th:text="${country.capital}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

@@ -1,0 +1,135 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --yellow: hsl(43, 99%, 71%);
+    --dark-blue: hsl(195, 85%, 16%);
+    --dark-grey: hsl(230, 9%, 14%);
+    --light-grey: hsl(220, 33%, 98%);
+    --grey: hsl(220, 16%, 96%);
+    --bg-color: hsl(180, 27%, 96%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "JetBrains Mono Medium", sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+section {
+    width: 80%;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    padding: 1rem;
+}
+
+h1, tr {
+    color: var(--dark-blue);
+}
+
+form {
+    width: 95%;
+    padding: 1.5rem 0 1rem;
+    border-bottom-color: var(--light-grey);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+form input, select, button {
+    border-radius: 5px;
+}
+
+form input, select {
+    padding-left: 0.3rem;
+    background-color: var(--light-grey);
+    border: 1px solid hsl(220, 33%, 70%);
+    outline: transparent;
+}
+
+form input:focus {
+    border: 1px solid var(--yellow);
+}
+
+form input:disabled {
+    background-color: var(--dark-grey);
+}
+
+form #top-count {
+    width: 4rem;
+}
+
+form button {
+    padding: 0.75rem;
+    color: var(--dark-grey);
+    background-color: var(--yellow);
+    border-style: hidden;
+    outline: transparent;
+}
+
+form button:hover {
+    cursor: pointer;
+    color: hsl(230, 9%, 20%);
+    background-color: hsl(43, 99%, 80%);
+}
+
+table {
+    table-layout: fixed;
+    width: 95%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    color: var(--white);
+    background-color: var(--dark-blue);
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--white);
+}
+
+tr:nth-child(even) {
+    background-color: var(--grey);
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
