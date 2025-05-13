@@ -124,10 +124,12 @@ const apiSelect = document.getElementById("api-select");
 const areaName = document.getElementById("area-name");
 const topCount = document.getElementById("top-count");
 
-if (apiSelect.value === "world") areaName.setAttribute("disabled", "");
+if (apiSelect.value === "world") {
+    areaName.setAttribute("disabled", "");
+}
 
 getTableData("world", "", "").then(json => {
-    if (json) createTable(json, "world");   // Create default table on page load.
+    if (json) createTable(json, "world");   // Create the default table on an initial page load.
 });
 
 queryForm.addEventListener("submit", (e) => {
@@ -142,19 +144,36 @@ queryForm.addEventListener("submit", (e) => {
     });
 });
 
-// Disable/Enable inputs depending on value selected for dropdown.
-apiSelect.addEventListener("change", (e) => {
+// Disable/Enable inputs depending on the value selected for dropdown.
+apiSelect.addEventListener("change", () => {
     const apiSelectValue = apiSelect.options[apiSelect.selectedIndex].value;
 
     if (apiSelectValue === "world") {
-        if (!areaName.hasAttribute("disabled")) areaName.setAttribute("disabled", "");
-        if (topCount.hasAttribute("disabled")) topCount.removeAttribute("disabled");
+        if (!areaName.hasAttribute("disabled")) {
+            areaName.value = "";
+            areaName.setAttribute("disabled", "");
+        }
+
+        if (topCount.hasAttribute("disabled")) {
+            topCount.removeAttribute("disabled");
+        }
 
     } else if (apiSelectValue === "languages") {
-        if (!areaName.hasAttribute("disabled")) areaName.setAttribute("disabled", "");
-        if (!topCount.hasAttribute("disabled")) topCount.setAttribute("disabled", "");
+        if (!areaName.hasAttribute("disabled")) {
+            areaName.value = "";
+            areaName.setAttribute("disabled", "");
+        }
+        if (!topCount.hasAttribute("disabled")) {
+            topCount.value = "";
+            topCount.setAttribute("disabled", "");
+        }
     } else {
-        if (areaName.hasAttribute("disabled")) areaName.removeAttribute("disabled");
-        if (topCount.hasAttribute("disabled")) topCount.removeAttribute("disabled");
+        if (areaName.hasAttribute("disabled")) {
+            areaName.removeAttribute("disabled");
+        }
+
+        if (topCount.hasAttribute("disabled")) {
+            topCount.removeAttribute("disabled");
+        }
     }
 });
