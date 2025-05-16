@@ -10,3 +10,8 @@ services:
     restart: always
     ports:
       - "33060:3306"
+
+  # dummy container so that one exits and actions doesn't keep running
+  # Dockerlile entrypoint is 1-min sleep
+  dummy:
+    build: dummy/.
